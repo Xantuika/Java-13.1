@@ -26,7 +26,7 @@ public class ProductRepository {
     public void removeById(int id) { 
         Product verifyId = findById (id);
         if (verifyId == null) {
-            throw new NotFoundException( "Element with id: " + id + " not found" );
+            throw new NotFoundException( "Элемент с таким: " + id + " не найден" );
         }
         Product [] tmp = new Product[products.length -1];
         int copyToIndex = 0;
