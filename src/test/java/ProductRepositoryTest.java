@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import productRepository.AlreadyExistsException;
@@ -58,31 +57,4 @@ public class ProductRepositoryTest {
             repo.removeById(8);
         });
     }
-
-    @Test
-    public void saveProductSameId() {
-        ProductRepository repo = new ProductRepository();
-        repo.save(product1);
-        repo.save(product2);
-        repo.save(product3);
-        repo.save(product4);
-
-        Assertions.assertThrows(AlreadyExistsException.class, () -> {
-            repo.save(product1);
-        });
-    }
-
-    @Test
-    public void removeNonExistentById () {
-        ProductRepository repo = new ProductRepository();
-        repo.save(product1);
-        repo.save(product2);
-        repo.save(product3);
-        repo.save(product4);
-
-        Assertions.assertThrows(NotFoundException.class, () -> {
-            repo.removeById(5);
-        });
-    }
-
 }
