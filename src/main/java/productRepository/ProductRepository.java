@@ -6,6 +6,14 @@ public class ProductRepository {
     private Product[] products = new Product[0];
 
     public void save(Product product) {
+
+       Product newProduct = findById(product.getId());
+        if (newProduct != null) {
+            throw new AlreadyExistsException(
+                    "Element with id: " + product.getId() + " already exists"
+            );
+        }
+
     Product[] tmp = new Product[products.length + 1];
         for (int i = 0; i < products.length; i++) {
             tmp[i] = products[i];
@@ -18,7 +26,7 @@ public class ProductRepository {
     public void removeById(int id) { 
         Product verifyId = findById (id);
         if (verifyId == null) {
-            throw new NotFoundException( "Элемент с таким id " + id + "не найден" );
+            throw new NotFoundException( "Element with id: " + id + " not found" );
         }
         Product [] tmp = new Product[products.length -1];
         int copyToIndex = 0;
