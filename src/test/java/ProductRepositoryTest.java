@@ -43,18 +43,5 @@ public class ProductRepositoryTest {
 
         assertArrayEquals(expected, actual);
     }
-    @Test
-    public void deletByNonexistentId() {
-        ProductRepository repo = new ProductRepository();
-        repo.save(product1);
-        repo.save(product2);
-        repo.save(product3);
-        repo.save(product4);
-
-        Product[] actual = repo.getProducts();
-
-        assertThrows(NotFoundException.class, () -> {
-            repo.removeById(8);
-        });
-    }
+   
 }
