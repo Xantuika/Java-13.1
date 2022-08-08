@@ -9,16 +9,15 @@ public class Smartphone extends Product {
         this.manufacturer = manufacturer;
     }
 
-    //public String getManufacturer() {
-      //  return manufacturer;
-   // }
+    public Smartphone() {
 
-    //public void setManufacturer(String manufacturer) {
-       // this.manufacturer = manufacturer;
-   // }
+    }
 
-   // @Override
-   // public void use() {
-       // System.out.println("Пользуемся телефоном " + name);
-   // }
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
 }
